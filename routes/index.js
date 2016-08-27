@@ -32,7 +32,7 @@ router.post('/', function (req, res) {
 console.log("query length " + query.length)
     if (query.length > 0) {
       request('http://www.whatscap.com/web/search.jsp?q=' + query, function (error, res, body) {
-        if (!error && res.statusCode == 200) 
+        if (!error && res.statusCode == 200) {
           console.log('----- no error')
           let $ = cheerio.load(body);
           var photos = [];
@@ -50,9 +50,10 @@ console.log("query length " + query.length)
           });
 
           bot.answerInlineQuery(inlineQuery['id'], photos);
+        } else {
+          console.log(error)
+        }
       });
-    } else {
-      console.log(error)
     }
   }
 

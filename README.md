@@ -27,6 +27,18 @@ All sensitive credentials are stored in `.env` file and will not commit to git r
 
     TELEGRAM_TOKEN=Telegram bot API token. Can get it from botfather
 
+## app.yaml
+
+Google App Engine environment settings are stored in `app.yaml`. **DO NOT** check in to git.
+
+    # [START app_yaml]
+    runtime: nodejs
+    vm: true
+    env_variables:
+      TELEGRAM_TOKEN: Telegram bot API token. Can get it from botfather
+    # [END app_yaml]
+
+
 ## Deployment
 
 If you want to host this bot in your own Google App Engine, [Check here](https://cloud.google.com/nodejs/resources/frameworks/express#expressjs_config)

@@ -1,6 +1,0 @@
-# [START app_yaml]
-runtime: nodejs
-vm: true
-env_variables:
-  TELEGRAM_TOKEN: '250250299:AAF5uSO0wXCc71Z7FZPLY4yWangv1l-5458'
-# [END app_yaml]

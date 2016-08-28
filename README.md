@@ -1,13 +1,46 @@
-## Express.js on Google App Engine
+# Telegram Bot
 
-> [Express][1] is a minimal and flexible Node.js web application framework that
-provides a robust set of features for web and mobile applications.
+This is a telegram bot written in Express.js and ready to deploy to Google App Engine.
 
-Read the [Express.js on App Engine Tutorial][2] for how to run and deploy this
-sample app.
+## Setup instruction
 
-You can also view the [live demo][3] and read the [Express.js documentation][1].
+### Setup Telegram API
 
-[1]: http://expressjs.com/
-[2]: https://cloud.google.com/nodejs/resources/frameworks/express
-[3]: http://express-dot-nodejs-docs-samples.appspot.com
+Telegram has two different way to receive bot commands:
+
+1. Polling Telegram `getUpdate` API
+2. Setup a bot webhook to receive any message sent to bot
+
+Since we cannot set webhook to our local development server. In order for us to debug bot code, we need to poll telegram API. 
+
+The poll code are currently located in `app.js`. Uncomment it to debug. Those code will move to a module in the next update.
+
+### Setup webhook
+
+A telegram bot webhook can be easily set by a URL.
+
+    https://api.telegram.org/bot[bot token]/setWebHook?url=[webhook url]
+
+## Environment variables
+
+All sensitive credentials are stored in `.env` file and will not commit to git repository. Please create with this template
+
+    TELEGRAM_TOKEN=Telegram bot API token. Can get it from botfather
+
+## Deployment
+
+If you want to host this bot in your own Google App Engine, [Check here](https://cloud.google.com/nodejs/resources/frameworks/express#expressjs_config)
+
+> Remember to put `TELEGRAM_TOKEN` in `app.yaml`
+
+## Contributing
+
+**Everyone** is encouraged to help improve this project.
+
+## Submitting a Pull Request
+
+1. Fork the project.
+2. Create a topic branch.
+3. Implement your feature or bug fix.
+4. Commit and push your changes.
+5. Submit a pull request.
